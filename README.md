@@ -1,6 +1,6 @@
 # Mis Eventos - Sistema de Gestión de Eventos
 
-Aplicación web Full Stack para la gestión eficiente de eventos, desarrollada como prueba técnica.
+Aplicación web Full Stack para la gestión eficiente de eventos.
 
 ## 🏗️ Estructura del Proyecto
 
