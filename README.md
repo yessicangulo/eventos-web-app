@@ -62,7 +62,3 @@ cd backend
 poetry run pytest
 poetry run pytest --cov=app --cov-report=html
 ```
-
-## 📄 Licencia
-
-Este proyecto fue desarrollado como prueba técnica.
