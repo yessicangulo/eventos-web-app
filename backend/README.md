@@ -133,7 +133,6 @@ Al ejecutar `docker-compose up`, el sistema automáticamente:
 
 - **Backend**: http://localhost:5000
 - **Swagger UI**: http://localhost:5000/swagger
-- **ReDoc**: http://localhost:5000/redoc
 
 ## Endpoints Principales
 
