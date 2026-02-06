@@ -122,6 +122,33 @@ Los eventos pueden tener los siguientes estados:
 - **Axios** - Cliente HTTP para peticiones al backend
 - **Context API** - Estado global (autenticación)
 
+## 🧪 Testing
+
+### Ejecutar Tests
+
+```bash
+# Ejecutar tests en modo watch (recomendado para desarrollo)
+npm run test
+
+# Ejecutar tests una vez
+npm run test:run
+
+# Ejecutar tests con interfaz gráfica
+npm run test:ui
+
+# Ejecutar tests con reporte de cobertura
+npm run test:coverage
+```
+
+### Cobertura de Tests
+
+El reporte de cobertura se genera en `coverage/` después de ejecutar `npm run test:coverage`.
+
+**Componentes con tests:**
+- `Button` - Componente de botón reutilizable
+- `Input` - Componente de input reutilizable
+- `EventCard` - Tarjeta de evento
+
 ## 📝 Notas Importantes
 
 - El frontend requiere que el backend esté corriendo para funcionar
@@ -129,8 +156,6 @@ Los eventos pueden tener los siguientes estados:
 - Las rutas protegidas redirigen a `/login` si no hay autenticación
 - La paginación se muestra automáticamente cuando hay más de 6 eventos
 
-
 ## 📚 Documentación Adicional
 
-- Ver `INICIO_RAPIDO.md` para guía de inicio rápido
 - Ver documentación del backend para detalles de la API
