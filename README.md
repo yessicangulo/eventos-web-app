@@ -82,7 +82,7 @@ docker-compose up --build -d
 - Node.js 18+ (recomendado 20+)
 - npm o yarn
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 ### Backend
 - FastAPI
