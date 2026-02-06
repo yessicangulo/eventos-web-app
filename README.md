@@ -43,9 +43,28 @@ El frontend estará disponible en: **http://localhost:5173**
 
 ### Docker
 
+Levanta todos los servicios (DB, Backend y Frontend) con un solo comando:
+
 ```bash
 docker-compose up --build
 ```
+
+O en segundo plano:
+
+```bash
+docker-compose up --build -d
+```
+
+**Servicios disponibles:**
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:5000/api/v1
+- **Swagger UI**: http://localhost:5000/swagger
+- **PostgreSQL**: localhost:5432
+
+**Nota**: Al iniciar por primera vez, el backend automáticamente:
+1. Espera a que PostgreSQL esté listo
+2. Crea las tablas (migraciones)
+3. Crea usuarios iniciales (admin y organizador)
 
 ## 📋 Requisitos
 
