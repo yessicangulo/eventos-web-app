@@ -25,10 +25,14 @@ El frontend estará disponible en: **http://localhost:5173**
 ## 📋 Scripts Disponibles
 
 ```bash
-npm run dev      # Servidor de desarrollo (con hot reload)
-npm run build    # Construir para producción
-npm run preview  # Previsualizar build de producción
-npm run lint     # Ejecutar linter
+npm run dev          # Servidor de desarrollo (con hot reload)
+npm run build        # Construir para producción
+npm run preview      # Previsualizar build de producción
+npm run lint         # Ejecutar linter
+npm run test         # Ejecutar tests en modo watch
+npm run test:run     # Ejecutar tests una vez
+npm run test:ui      # Ejecutar tests con interfaz gráfica
+npm run test:coverage # Ejecutar tests con reporte de cobertura
 ```
 
 ## 🏗️ Estructura del Proyecto

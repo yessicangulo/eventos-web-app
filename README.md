@@ -143,7 +143,11 @@ poetry run pytest --cov=app --cov-report=html
 ```bash
 cd frontend
 npm run lint
+npm run test:run        # Ejecutar tests
+npm run test:coverage    # Tests con reporte de cobertura
 ```
+
+**Reporte de cobertura**: Se genera en `frontend/coverage/` después de ejecutar `npm run test:coverage`
 
 ## 🔗 URLs Importantes
 
