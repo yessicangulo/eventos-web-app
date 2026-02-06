@@ -80,7 +80,7 @@ backend/
 └── README.md
 ```
 
-## 👤 Gestión de Usuarios y Roles
+## Gestión de Usuarios y Roles
 
 ### Usuarios Iniciales
 
