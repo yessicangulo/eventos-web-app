@@ -216,9 +216,17 @@ poetry run flake8 app/
 # Testing
 poetry run pytest
 poetry run pytest --cov=app --cov-report=html
+poetry run pytest --cov=app --cov-report=xml  # Para CI/CD
 ```
 
-Cobertura mínima requerida: **50%**
+**Cobertura mínima requerida:** 50%
+
+**Reportes de cobertura:**
+- HTML: `htmlcov/index.html` (abrir en navegador)
+- XML: `coverage.xml` (para herramientas CI/CD)
+- Terminal: Se muestra al ejecutar los tests
+
+**Nota:** Los directorios `htmlcov/` y archivo `coverage.xml` están en `.gitignore` y no se suben al repositorio.
 
 ## Autenticación y Tokens
 

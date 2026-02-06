@@ -1,6 +1,6 @@
 # Mis Eventos - Sistema de Gestión de Eventos
 
-Aplicación web Full Stack para la gestión eficiente de eventos.
+Aplicación web Full Stack para la gestión eficiente de eventos desarrollada con FastAPI (backend) y React (frontend).
 
 ## 🏗️ Estructura del Proyecto
 
@@ -29,7 +29,7 @@ El backend estará disponible en: **http://localhost:5000**
 
 ### Frontend
 
-Consulta el [README del frontend](./frontend/README.md) o [INICIO_RAPIDO.md](./frontend/INICIO_RAPIDO.md) para instrucciones detalladas.
+Consulta el [README del frontend](./frontend/README.md) para instrucciones detalladas.
 
 ```bash
 cd frontend
@@ -66,6 +66,14 @@ docker-compose up --build -d
 2. Crea las tablas (migraciones)
 3. Crea usuarios iniciales (admin y organizador)
 
+**Credenciales por defecto:**
+- **Admin**: `admin@mis-eventos.com` / `admin123`
+- **Organizador**: `organizer@mis-eventos.com` / `organizer123`
+
+**Credenciales por defecto:**
+- **Admin**: `admin@mis-eventos.com` / `admin123`
+- **Organizador**: `organizer@mis-eventos.com` / `organizer123`
+
 ## 📋 Requisitos
 
 ### Backend
@@ -98,7 +106,6 @@ docker-compose up --build -d
 
 - [Backend README](./backend/README.md)
 - [Frontend README](./frontend/README.md)
-- [Frontend Inicio Rápido](./frontend/INICIO_RAPIDO.md)
 - API Documentation: http://localhost:5000/swagger
 
 ## 🔑 Funcionalidades Principales
@@ -134,20 +141,26 @@ docker-compose up --build -d
 
 ```bash
 cd backend
-poetry run pytest
-poetry run pytest --cov=app --cov-report=html
+poetry run pytest                              # Ejecutar tests
+poetry run pytest --cov=app --cov-report=html # Con cobertura HTML
+poetry run pytest --cov=app --cov-report=xml  # Con cobertura XML (CI/CD)
 ```
+
+**Cobertura mínima requerida:** 50%
+**Reportes:** `htmlcov/index.html` (HTML) y `coverage.xml` (XML)
 
 ### Frontend
 
 ```bash
 cd frontend
-npm run lint
-npm run test:run        # Ejecutar tests
-npm run test:coverage    # Tests con reporte de cobertura
+npm run lint              # Ejecutar linter
+npm run test              # Tests en modo watch
+npm run test:run          # Ejecutar tests una vez
+npm run test:ui           # Tests con interfaz gráfica
+npm run test:coverage     # Tests con reporte de cobertura
 ```
 
-**Reporte de cobertura**: Se genera en `frontend/coverage/` después de ejecutar `npm run test:coverage`
+**Reporte de cobertura:** Se genera en `frontend/coverage/` después de ejecutar `npm run test:coverage`
 
 ## 🔗 URLs Importantes
 
