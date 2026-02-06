@@ -30,9 +30,15 @@ RUN mkdir -p /app/logs
 # Exponer puerto
 EXPOSE 5000
 
-# Script de inicio que espera a la DB y ejecuta migraciones
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+# Script de inicio - copiar explícitamente y asegurar permisos
+# Convertir finales de línea Windows (CRLF) a Unix (LF) si es necesario
+RUN if [ -f docker-entrypoint.sh ]; then \
+        cp docker-entrypoint.sh /docker-entrypoint.sh && \
+        sed -i 's/\r$//' /docker-entrypoint.sh && \
+        chmod +x /docker-entrypoint.sh; \
+    else \
+        echo "ERROR: docker-entrypoint.sh no encontrado" && exit 1; \
+    fi
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["python", "run.py"]

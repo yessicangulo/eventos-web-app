@@ -64,7 +64,7 @@ const EventDetail = () => {
       const response = await attendeeService.checkRegistration(parseInt(id));
       setIsRegistered(response.is_registered || false);
     } catch (err) {
-      console.error('Error al verificar registro:', err);
+      // Error silencioso al verificar registro
     } finally {
       setCheckingRegistration(false);
     }

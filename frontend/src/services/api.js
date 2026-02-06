@@ -1,8 +1,14 @@
 import axios from 'axios';
 
 // Base URL del backend FastAPI
-// Intentar usar 127.0.0.1 primero (más compatible), luego localhost
-const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api/v1';
+// Asegurar que siempre incluya /api/v1
+let API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api/v1';
+
+// Si la URL no termina con /api/v1, agregarlo
+if (API_URL && !API_URL.endsWith('/api/v1')) {
+  // Si termina con /, quitar la barra final antes de agregar /api/v1
+  API_URL = API_URL.replace(/\/$/, '') + '/api/v1';
+}
 
 // Crear instancia de Axios
 const api = axios.create({
@@ -39,14 +45,8 @@ api.interceptors.response.use(
     if (!error.response) {
       // Error de red (backend no disponible, CORS, etc.)
       if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
-        console.error('Network Error Details:', {
-          code: error.code,
-          message: error.message,
-          config: error.config,
-          url: error.config?.url,
-        });
         error.message =
-          'No se pudo conectar con el servidor. Verifica que el backend esté corriendo y que CORS esté configurado correctamente. Backend esperado en: http://127.0.0.1:5000';
+          'No se pudo conectar con el servidor. Verifica que el backend esté corriendo y que CORS esté configurado correctamente.';
       }
     } else if (error.response?.status === 0) {
       // Error CORS típico

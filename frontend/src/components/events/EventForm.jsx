@@ -224,7 +224,7 @@ const EventForm = ({
 
       await onSubmit(submitData);
     } catch (err) {
-      console.error('Error al enviar formulario:', err);
+      // Error manejado por el componente padre
     } finally {
       setIsSubmitting(false);
     }
