@@ -2,7 +2,7 @@
 
 Frontend React para la gestión de eventos, desarrollado con Vite, React Router y Context API.
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### Requisitos Previos
 
@@ -22,7 +22,7 @@ npm run dev
 
 El frontend estará disponible en: **http://localhost:5173**
 
-## 📋 Scripts Disponibles
+## Scripts Disponibles
 
 ```bash
 npm run dev          # Servidor de desarrollo (con hot reload)
@@ -35,7 +35,7 @@ npm run test:ui      # Ejecutar tests con interfaz gráfica
 npm run test:coverage # Ejecutar tests con reporte de cobertura
 ```
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 src/
@@ -66,7 +66,7 @@ src/
 └── main.jsx           # Punto de entrada
 ```
 
-## 🔑 Funcionalidades Principales
+## Funcionalidades Principales
 
 ### Autenticación
 - Registro de usuarios (rol ATTENDEE por defecto)
@@ -93,7 +93,7 @@ src/
 - Ver eventos creados (ORGANIZER/ADMIN)
 - Ver eventos registrados (ATTENDEE)
 
-## 🔧 Configuración
+## Configuración
 
 ### URL del Backend
 
@@ -114,7 +114,7 @@ Los eventos pueden tener los siguientes estados:
 - **COMPLETED** (Completado): No editable
 - **CANCELLED** (Cancelado): Solo se puede reactivar cambiando el estado
 
-## 🎨 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **React 18** - Biblioteca de UI
 - **Vite** - Herramienta de construcción y desarrollo
@@ -122,7 +122,7 @@ Los eventos pueden tener los siguientes estados:
 - **Axios** - Cliente HTTP para peticiones al backend
 - **Context API** - Estado global (autenticación)
 
-## 🧪 Testing
+## Testing
 
 ### Ejecutar Tests
 
@@ -149,13 +149,13 @@ El reporte de cobertura se genera en `coverage/` después de ejecutar `npm run t
 - `Input` - Componente de input reutilizable
 - `EventCard` - Tarjeta de evento
 
-## 📝 Notas Importantes
+## Notas Importantes
 
 - El frontend requiere que el backend esté corriendo para funcionar
 - Los tokens JWT se guardan en `localStorage`
 - Las rutas protegidas redirigen a `/login` si no hay autenticación
 - La paginación se muestra automáticamente cuando hay más de 6 eventos
 
-## 📚 Documentación Adicional
+## Documentación Adicional
 
 - Ver documentación del backend para detalles de la API

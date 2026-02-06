@@ -2,7 +2,7 @@
 
 Aplicación web Full Stack para la gestión eficiente de eventos desarrollada con FastAPI (backend) y React (frontend).
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 .
@@ -12,7 +12,7 @@ Aplicación web Full Stack para la gestión eficiente de eventos desarrollada co
 └── docker-compose.yml
 ```
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### Backend
 
@@ -70,11 +70,7 @@ docker-compose up --build -d
 - **Admin**: `admin@mis-eventos.com` / `admin123`
 - **Organizador**: `organizer@mis-eventos.com` / `organizer123`
 
-**Credenciales por defecto:**
-- **Admin**: `admin@mis-eventos.com` / `admin123`
-- **Organizador**: `organizer@mis-eventos.com` / `organizer123`
-
-## 📋 Requisitos
+## Requisitos
 
 ### Backend
 - Python 3.12+
@@ -86,7 +82,7 @@ docker-compose up --build -d
 - Node.js 18+ (recomendado 20+)
 - npm o yarn
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 ### Backend
 - FastAPI
@@ -102,13 +98,13 @@ docker-compose up --build -d
 - Axios
 - Context API
 
-## 📝 Documentación
+## Documentación
 
 - [Backend README](./backend/README.md)
 - [Frontend README](./frontend/README.md)
 - API Documentation: http://localhost:5000/swagger
 
-## 🔑 Funcionalidades Principales
+## Funcionalidades Principales
 
 ### Autenticación
 - Registro de usuarios (rol ATTENDEE por defecto)
@@ -135,7 +131,7 @@ docker-compose up --build -d
 - Ver eventos creados (ORGANIZER/ADMIN)
 - Ver eventos registrados (ATTENDEE)
 
-## 🧪 Testing
+## Testing
 
 ### Backend
 
@@ -162,7 +158,7 @@ npm run test:coverage     # Tests con reporte de cobertura
 
 **Reporte de cobertura:** Se genera en `frontend/coverage/` después de ejecutar `npm run test:coverage`
 
-## 🔗 URLs Importantes
+## URLs Importantes
 
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:5000/api/v1
