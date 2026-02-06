@@ -226,8 +226,6 @@ poetry run pytest --cov=app --cov-report=xml  # Para CI/CD
 - XML: `coverage.xml` (para herramientas CI/CD)
 - Terminal: Se muestra al ejecutar los tests
 
-**Nota:** Los directorios `htmlcov/` y archivo `coverage.xml` están en `.gitignore` y no se suben al repositorio.
-
 ## Autenticación y Tokens
 
 ### Configuración de Tokens
@@ -236,15 +234,13 @@ El sistema utiliza autenticación JWT con tokens que expiran después de **24 ho
 
 **Decisión de diseño:**
 - Para esta versión inicial, se optó por un token de duración extendida (1 día) en lugar de implementar un sistema de refresh tokens.
-- Esta decisión prioriza la simplicidad y la experiencia de usuario durante el desarrollo y pruebas iniciales.
+- Esta decisión prioriza la simplicidad y la experiencia de usuario durante el desarrollo y las pruebas iniciales.
 - Un token de 1 día permite que los usuarios trabajen durante una jornada completa sin interrupciones por expiración.
 - La implementación de refresh tokens se considera una mejora futura para cuando el proyecto requiera mayor seguridad o control de sesiones.
 
 **Configuración:**
 - El tiempo de expiración se configura mediante la variable de entorno `ACCESS_TOKEN_EXPIRE_MINUTES` (valor por defecto: 1440 minutos = 24 horas).
 - Para cambiar la duración, modifica esta variable en el archivo `.env`.
-
-**Nota:** En un entorno de producción, se recomienda considerar la implementación de refresh tokens para mayor seguridad y control de sesiones.
 
 ## Notas
 
