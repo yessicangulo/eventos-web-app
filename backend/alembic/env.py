@@ -13,6 +13,14 @@ sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), ".."
 from app.config import settings  # noqa: E402
 from app.database import Base  # noqa: E402
 
+# Importar todos los modelos para que Alembic los detecte
+from app.models import (  # noqa: E402, F401
+    Event,
+    EventRegistration,
+    Session,
+    User,
+)
+
 # this is the Alembic Config object
 config = context.config
 
