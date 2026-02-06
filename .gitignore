@@ -60,9 +60,6 @@ test.db
 .DS_Store
 Thumbs.db
 
-# Docker
-.dockerignore
-
 # Documentation
 Doc/
 
@@ -73,10 +70,18 @@ backend/htmlcov/
 backend/.coverage
 backend/coverage.xml
 backend/test.db
+backend/activate.ps1
+backend/auto-activate.ps1
 
-# Frontend (para cuando lo agregue)
+# Python tools cache
+.ruff_cache/
+.pylint.d/
+.mypy_cache/
+
+# Frontend
 frontend/node_modules/
-frontend/.next/
+frontend/.vite/
 frontend/dist/
 frontend/build/
 frontend/.env.local
+frontend/.env

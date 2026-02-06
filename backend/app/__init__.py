@@ -14,7 +14,6 @@ def create_app() -> FastAPI:
         description="API de Gestión de Eventos - Documentación automática",
         version=settings.VERSION,
         docs_url="/swagger",
-        redoc_url="/redoc",
         openapi_url=f"{settings.API_V1_PREFIX}/openapi.json",
     )
     app.add_middleware(
