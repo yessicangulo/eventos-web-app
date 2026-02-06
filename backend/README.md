@@ -33,7 +33,7 @@ DATABASE_URL=postgresql://user:password@localhost/mis_eventos
 # Security
 SECRET_KEY=tu-clave-secreta-super-segura-cambia-esto-en-produccion
 ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
+ACCESS_TOKEN_EXPIRE_MINUTES=1440
 
 # CORS
 BACKEND_CORS_ORIGINS=["http://localhost:3000","http://localhost:5173"]
@@ -219,6 +219,24 @@ poetry run pytest --cov=app --cov-report=html
 ```
 
 Cobertura mínima requerida: **50%**
+
+## Autenticación y Tokens
+
+### Configuración de Tokens
+
+El sistema utiliza autenticación JWT con tokens que expiran después de **24 horas (1 día)** por defecto.
+
+**Decisión de diseño:**
+- Para esta versión inicial, se optó por un token de duración extendida (1 día) en lugar de implementar un sistema de refresh tokens.
+- Esta decisión prioriza la simplicidad y la experiencia de usuario durante el desarrollo y pruebas iniciales.
+- Un token de 1 día permite que los usuarios trabajen durante una jornada completa sin interrupciones por expiración.
+- La implementación de refresh tokens se considera una mejora futura para cuando el proyecto requiera mayor seguridad o control de sesiones.
+
+**Configuración:**
+- El tiempo de expiración se configura mediante la variable de entorno `ACCESS_TOKEN_EXPIRE_MINUTES` (valor por defecto: 1440 minutos = 24 horas).
+- Para cambiar la duración, modifica esta variable en el archivo `.env`.
+
+**Nota:** En un entorno de producción, se recomienda considerar la implementación de refresh tokens para mayor seguridad y control de sesiones.
 
 ## Notas
 
