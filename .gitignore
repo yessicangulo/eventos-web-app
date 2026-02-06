@@ -83,5 +83,8 @@ frontend/node_modules/
 frontend/.vite/
 frontend/dist/
 frontend/build/
+frontend/dist-ssr/
+frontend/coverage/
 frontend/.env.local
 frontend/.env
+frontend/.env.*.local
