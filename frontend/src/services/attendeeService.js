@@ -11,7 +11,7 @@ export const attendeeService = {
    * @param {number} eventId - ID del evento
    * @returns {Promise<{message: string, data: {event_id: number, registered_at: string}}>}
    */
-  register: async (eventId) => {
+  register: async eventId => {
     const response = await api.post(`/attendees/register/${eventId}`);
     return response.data;
   },
@@ -22,7 +22,7 @@ export const attendeeService = {
    * @param {number} eventId - ID del evento
    * @returns {Promise<void>}
    */
-  unregister: async (eventId) => {
+  unregister: async eventId => {
     await api.delete(`/attendees/unregister/${eventId}`);
   },
 
@@ -61,7 +61,7 @@ export const attendeeService = {
    * @param {number} eventId - ID del evento
    * @returns {Promise<{is_registered: boolean}>}
    */
-  checkRegistration: async (eventId) => {
+  checkRegistration: async eventId => {
     const response = await api.get(`/attendees/check/${eventId}`);
     return response.data;
   },

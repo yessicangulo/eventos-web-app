@@ -14,20 +14,20 @@ const api = axios.create({
 
 // Interceptor para añadir token automáticamente a todas las peticiones
 api.interceptors.request.use(
-  (config) => {
+  config => {
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  error => Promise.reject(error)
 );
 
 // Interceptor para manejar errores globalmente
 api.interceptors.response.use(
-  (response) => response,
-  (error) => {
+  response => response,
+  error => {
     // Manejar errores 401 (no autorizado) - limpiar token
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
@@ -45,11 +45,13 @@ api.interceptors.response.use(
           config: error.config,
           url: error.config?.url,
         });
-        error.message = 'No se pudo conectar con el servidor. Verifica que el backend esté corriendo y que CORS esté configurado correctamente. Backend esperado en: http://127.0.0.1:5000';
+        error.message =
+          'No se pudo conectar con el servidor. Verifica que el backend esté corriendo y que CORS esté configurado correctamente. Backend esperado en: http://127.0.0.1:5000';
       }
     } else if (error.response?.status === 0) {
       // Error CORS típico
-      error.message = 'Error de CORS: El backend no permite peticiones desde este origen. Verifica BACKEND_CORS_ORIGINS en el backend.';
+      error.message =
+        'Error de CORS: El backend no permite peticiones desde este origen. Verifica BACKEND_CORS_ORIGINS en el backend.';
     }
 
     return Promise.reject(error);

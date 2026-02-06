@@ -51,7 +51,7 @@ export const sessionService = {
    *   created_at: string
    * }>}
    */
-  getById: async (id) => {
+  getById: async id => {
     const response = await api.get(`/sessions/${id}`);
     return response.data;
   },
@@ -83,7 +83,7 @@ export const sessionService = {
    *   created_at: string
    * }>}
    */
-  create: async (data) => {
+  create: async data => {
     const response = await api.post('/sessions', data);
     return response.data;
   },
@@ -126,7 +126,7 @@ export const sessionService = {
    * @param {number} id - ID de la sesión
    * @returns {Promise<void>}
    */
-  delete: async (id) => {
+  delete: async id => {
     await api.delete(`/sessions/${id}`);
   },
 };

@@ -169,9 +169,7 @@ const Profile = () => {
             </div>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               {isOrganizer && (
-                <Button onClick={() => navigate('/events/create')}>
-                  + Crear Evento
-                </Button>
+                <Button onClick={() => navigate('/events/create')}>+ Crear Evento</Button>
               )}
               <Button onClick={handleLogout} style={{ backgroundColor: '#d32f2f' }}>
                 Cerrar Sesión

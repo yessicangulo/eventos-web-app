@@ -72,7 +72,7 @@ const EventList = ({ events, pagination, loading, error, onPageChange }) => {
   return (
     <div style={containerStyle}>
       <div style={gridStyle}>
-        {events.map((event) => (
+        {events.map(event => (
           <EventCard key={event.id} event={event} />
         ))}
       </div>
@@ -83,12 +83,12 @@ const EventList = ({ events, pagination, loading, error, onPageChange }) => {
             style={pagination.page === 1 ? disabledButtonStyle : buttonStyle}
             onClick={() => onPageChange && onPageChange(pagination.page - 1)}
             disabled={pagination.page === 1}
-            onMouseEnter={(e) => {
+            onMouseEnter={e => {
               if (pagination.page !== 1) {
                 e.target.style.backgroundColor = '#535bf2';
               }
             }}
-            onMouseLeave={(e) => {
+            onMouseLeave={e => {
               if (pagination.page !== 1) {
                 e.target.style.backgroundColor = '#646cff';
               }
@@ -105,12 +105,12 @@ const EventList = ({ events, pagination, loading, error, onPageChange }) => {
             style={pagination.page === pagination.total_pages ? disabledButtonStyle : buttonStyle}
             onClick={() => onPageChange && onPageChange(pagination.page + 1)}
             disabled={pagination.page === pagination.total_pages}
-            onMouseEnter={(e) => {
+            onMouseEnter={e => {
               if (pagination.page !== pagination.total_pages) {
                 e.target.style.backgroundColor = '#535bf2';
               }
             }}
-            onMouseLeave={(e) => {
+            onMouseLeave={e => {
               if (pagination.page !== pagination.total_pages) {
                 e.target.style.backgroundColor = '#646cff';
               }

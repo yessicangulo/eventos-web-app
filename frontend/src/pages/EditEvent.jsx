@@ -31,15 +31,14 @@ const EditEvent = () => {
       const eventData = await eventService.getById(id);
       setEvent(eventData);
     } catch (err) {
-      const errorMessage =
-        err.response?.data?.detail || err.message || 'Error al cargar el evento';
+      const errorMessage = err.response?.data?.detail || err.message || 'Error al cargar el evento';
       setError(errorMessage);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async data => {
     setSaving(true);
     setSaveError(null);
 
@@ -136,7 +135,7 @@ const EditEvent = () => {
     );
   }
 
-  const canEdit = (user.role === USER_ROLES.ORGANIZER || user.role === USER_ROLES.ADMIN);
+  const canEdit = user.role === USER_ROLES.ORGANIZER || user.role === USER_ROLES.ADMIN;
 
   if (!canEdit) {
     return (

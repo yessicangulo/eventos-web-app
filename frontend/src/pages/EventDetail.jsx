@@ -49,8 +49,7 @@ const EventDetail = () => {
       const eventData = await eventService.getById(id);
       setEvent(eventData);
     } catch (err) {
-      const errorMessage =
-        err.response?.data?.detail || err.message || 'Error al cargar el evento';
+      const errorMessage = err.response?.data?.detail || err.message || 'Error al cargar el evento';
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -113,10 +112,11 @@ const EventDetail = () => {
     }
   };
 
-  const canEdit = user &&
-                event &&
-                (user.role === 'organizer' || user.role === 'admin') &&
-                event.computed_status !== 'completed';
+  const canEdit =
+    user &&
+    event &&
+    (user.role === 'organizer' || user.role === 'admin') &&
+    event.computed_status !== 'completed';
   const canDelete = canEdit;
   const canRegister = user && user.role === 'attendee' && event && !event.is_full;
 
@@ -155,7 +155,7 @@ const EventDetail = () => {
     marginBottom: '1rem',
   };
 
-  const getStatusBadgeColor = (status) => {
+  const getStatusBadgeColor = status => {
     const colors = {
       scheduled: { backgroundColor: '#e3f2fd', color: '#1976d2' },
       ongoing: { backgroundColor: '#fff3e0', color: '#f57c00' },
@@ -260,15 +260,12 @@ const EventDetail = () => {
 
           <div style={buttonGroupStyle}>
             {canRegister && (
-              <Button
-                onClick={handleRegister}
-                disabled={registering || checkingRegistration}
-              >
+              <Button onClick={handleRegister} disabled={registering || checkingRegistration}>
                 {registering
                   ? 'Procesando...'
                   : isRegistered
-                  ? 'Cancelar Registro'
-                  : 'Registrarse al Evento'}
+                    ? 'Cancelar Registro'
+                    : 'Registrarse al Evento'}
               </Button>
             )}
 
@@ -282,55 +279,46 @@ const EventDetail = () => {
             )}
 
             {canDelete && (
-              <Button
-                onClick={handleDelete}
-                style={{ backgroundColor: '#d32f2f' }}
-              >
+              <Button onClick={handleDelete} style={{ backgroundColor: '#d32f2f' }}>
                 Eliminar Evento
               </Button>
             )}
 
             {!user && (
-              <Button onClick={() => navigate('/login')}>
-                Inicia sesión para registrarte
-              </Button>
+              <Button onClick={() => navigate('/login')}>Inicia sesión para registrarte</Button>
             )}
           </div>
-
-
         </Card>
 
         {event.sessions && event.sessions.length > 0 && (
           <div style={{ marginTop: '2rem' }}>
-          <Card>
-            <div style={sessionsSectionStyle}>
-              <h2 style={{ marginTop: 0, marginBottom: '1.5rem' }}>Sesiones del Evento</h2>
-              {event.sessions.map((session) => (
-                <div key={session.id} style={sessionCardStyle}>
-                  <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>{session.title}</h3>
-                  {session.description && (
-                    <p style={{ color: '#666', marginBottom: '0.5rem' }}>
-                      {session.description}
+            <Card>
+              <div style={sessionsSectionStyle}>
+                <h2 style={{ marginTop: 0, marginBottom: '1.5rem' }}>Sesiones del Evento</h2>
+                {event.sessions.map(session => (
+                  <div key={session.id} style={sessionCardStyle}>
+                    <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>{session.title}</h3>
+                    {session.description && (
+                      <p style={{ color: '#666', marginBottom: '0.5rem' }}>{session.description}</p>
+                    )}
+                    {session.speaker_name && (
+                      <p style={{ marginBottom: '0.5rem' }}>
+                        <strong>Ponente:</strong> {session.speaker_name}
+                      </p>
+                    )}
+                    <p style={{ marginBottom: '0.5rem', fontSize: '0.9rem', color: '#555' }}>
+                      <strong>Horario:</strong> {formatDateTime(session.start_time)} -{' '}
+                      {formatDateTime(session.end_time)}
                     </p>
-                  )}
-                  {session.speaker_name && (
-                    <p style={{ marginBottom: '0.5rem' }}>
-                      <strong>Ponente:</strong> {session.speaker_name}
-                    </p>
-                  )}
-                  <p style={{ marginBottom: '0.5rem', fontSize: '0.9rem', color: '#555' }}>
-                    <strong>Horario:</strong> {formatDateTime(session.start_time)} -{' '}
-                    {formatDateTime(session.end_time)}
-                  </p>
-                  {session.location && (
-                    <p style={{ marginBottom: 0, fontSize: '0.9rem', color: '#555' }}>
-                      <strong>Ubicación:</strong> {session.location}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </Card>
+                    {session.location && (
+                      <p style={{ marginBottom: 0, fontSize: '0.9rem', color: '#555' }}>
+                        <strong>Ubicación:</strong> {session.location}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </Card>
           </div>
         )}
       </div>

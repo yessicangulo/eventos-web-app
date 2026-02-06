@@ -9,7 +9,7 @@
  * Convierte una fecha a formato legible
  * Ejemplo: "2024-03-15" → "15 de marzo de 2024"
  */
-export const formatDate = (date) => {
+export const formatDate = date => {
   if (!date) return '';
 
   const fecha = new Date(date);
@@ -30,7 +30,7 @@ export const formatDate = (date) => {
  * Convierte una fecha y hora a formato legible
  * Ejemplo: "2024-03-15T14:30:00" → "15 de marzo de 2024, 14:30"
  */
-export const formatDateTime = (date) => {
+export const formatDateTime = date => {
   if (!date) return '';
 
   const fecha = new Date(date);

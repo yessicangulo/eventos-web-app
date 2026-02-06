@@ -14,7 +14,7 @@ const CreateEvent = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async data => {
     setLoading(true);
     setError(null);
 
@@ -22,8 +22,7 @@ const CreateEvent = () => {
       const newEvent = await eventService.create(data);
       navigate(`/events/${newEvent.id}`);
     } catch (err) {
-      const errorMessage =
-        err.response?.data?.detail || err.message || 'Error al crear el evento';
+      const errorMessage = err.response?.data?.detail || err.message || 'Error al crear el evento';
       setError(errorMessage);
       throw err;
     } finally {

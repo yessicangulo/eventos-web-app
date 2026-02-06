@@ -21,14 +21,14 @@ const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
     if (errors[name]) {
-      setErrors((prev) => ({
+      setErrors(prev => ({
         ...prev,
         [name]: null,
       }));
@@ -57,7 +57,7 @@ const Login = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (!validate()) {
@@ -71,8 +71,7 @@ const Login = () => {
       await login(formData.email, formData.password);
       navigate('/');
     } catch (err) {
-      const errorMessage =
-        err.response?.data?.detail || err.message || 'Error al iniciar sesión';
+      const errorMessage = err.response?.data?.detail || err.message || 'Error al iniciar sesión';
       setError(errorMessage);
     } finally {
       setIsSubmitting(false);

@@ -18,12 +18,14 @@ const Input = ({ label, error, type = 'text', disabled = false, ...props }) => {
   return (
     <div style={{ marginBottom: '1rem' }}>
       {label && (
-        <label style={{
-          display: 'block',
-          marginBottom: '0.5rem',
-          fontSize: '0.875rem',
-          fontWeight: 500,
-        }}>
+        <label
+          style={{
+            display: 'block',
+            marginBottom: '0.5rem',
+            fontSize: '0.875rem',
+            fontWeight: 500,
+          }}
+        >
           {label}
         </label>
       )}
@@ -35,12 +37,12 @@ const Input = ({ label, error, type = 'text', disabled = false, ...props }) => {
             resize: disabled ? 'none' : 'vertical',
           }}
           disabled={disabled}
-          onFocus={(e) => {
+          onFocus={e => {
             if (!disabled) {
               e.target.style.borderColor = error ? '#dc3545' : '#646cff';
             }
           }}
-          onBlur={(e) => {
+          onBlur={e => {
             if (!disabled) {
               e.target.style.borderColor = error ? '#dc3545' : '#ccc';
             }
@@ -52,12 +54,12 @@ const Input = ({ label, error, type = 'text', disabled = false, ...props }) => {
           type={type}
           style={inputStyle}
           disabled={disabled}
-          onFocus={(e) => {
+          onFocus={e => {
             if (!disabled) {
               e.target.style.borderColor = error ? '#dc3545' : '#646cff';
             }
           }}
-          onBlur={(e) => {
+          onBlur={e => {
             if (!disabled) {
               e.target.style.borderColor = error ? '#dc3545' : '#ccc';
             }
@@ -66,11 +68,13 @@ const Input = ({ label, error, type = 'text', disabled = false, ...props }) => {
         />
       )}
       {error && (
-        <div style={{
-          color: '#dc3545',
-          fontSize: '0.875rem',
-          marginTop: '0.25rem'
-        }}>
+        <div
+          style={{
+            color: '#dc3545',
+            fontSize: '0.875rem',
+            marginTop: '0.25rem',
+          }}
+        >
           {error}
         </div>
       )}

@@ -66,7 +66,12 @@ const Navbar = () => {
 
       <ul style={linksStyle}>
         <li>
-          <Link to="/" style={linkStyle} onMouseEnter={(e) => e.target.style.color = '#646cff'} onMouseLeave={(e) => e.target.style.color = '#333'}>
+          <Link
+            to="/"
+            style={linkStyle}
+            onMouseEnter={e => (e.target.style.color = '#646cff')}
+            onMouseLeave={e => (e.target.style.color = '#333')}
+          >
             Inicio
           </Link>
         </li>
@@ -74,7 +79,12 @@ const Navbar = () => {
         {isAuthenticated ? (
           <>
             <li>
-              <Link to="/profile" style={linkStyle} onMouseEnter={(e) => e.target.style.color = '#646cff'} onMouseLeave={(e) => e.target.style.color = '#333'}>
+              <Link
+                to="/profile"
+                style={linkStyle}
+                onMouseEnter={e => (e.target.style.color = '#646cff')}
+                onMouseLeave={e => (e.target.style.color = '#333')}
+              >
                 Mi Perfil
               </Link>
             </li>
@@ -82,7 +92,10 @@ const Navbar = () => {
               <span style={userEmailStyle}>
                 {user?.email} ({USER_ROLE_LABELS[user?.role] || 'Usuario'})
               </span>
-              <Button onClick={handleLogout} style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem' }}>
+              <Button
+                onClick={handleLogout}
+                style={{ padding: '0.4rem 0.8rem', fontSize: '0.9rem' }}
+              >
                 Cerrar Sesión
               </Button>
             </li>
@@ -90,12 +103,22 @@ const Navbar = () => {
         ) : (
           <>
             <li>
-              <Link to="/login" style={linkStyle} onMouseEnter={(e) => e.target.style.color = '#646cff'} onMouseLeave={(e) => e.target.style.color = '#333'}>
+              <Link
+                to="/login"
+                style={linkStyle}
+                onMouseEnter={e => (e.target.style.color = '#646cff')}
+                onMouseLeave={e => (e.target.style.color = '#333')}
+              >
                 Iniciar Sesión
               </Link>
             </li>
             <li>
-              <Link to="/register" style={linkStyle} onMouseEnter={(e) => e.target.style.color = '#646cff'} onMouseLeave={(e) => e.target.style.color = '#333'}>
+              <Link
+                to="/register"
+                style={linkStyle}
+                onMouseEnter={e => (e.target.style.color = '#646cff')}
+                onMouseLeave={e => (e.target.style.color = '#333')}
+              >
                 Registrarse
               </Link>
             </li>

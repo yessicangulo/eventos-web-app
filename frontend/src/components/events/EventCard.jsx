@@ -33,7 +33,7 @@ const EventCard = ({ event }) => {
     whiteSpace: 'nowrap',
   };
 
-  const getStatusBadgeColor = (status) => {
+  const getStatusBadgeColor = status => {
     const colors = {
       scheduled: { backgroundColor: '#e3f2fd', color: '#1976d2' },
       ongoing: { backgroundColor: '#fff3e0', color: '#f57c00' },
@@ -102,9 +102,7 @@ const EventCard = ({ event }) => {
           </span>
         </div>
 
-        {event.description && (
-          <p style={descriptionStyle}>{event.description}</p>
-        )}
+        {event.description && <p style={descriptionStyle}>{event.description}</p>}
 
         <div style={infoStyle}>
           {event.location && (
@@ -122,7 +120,9 @@ const EventCard = ({ event }) => {
 
         <div style={capacityStyle}>
           <span style={capacityTextStyle}>
-            {event.is_full ? '🔴 Lleno' : `✅ ${event.available_capacity} de ${event.capacity} disponibles`}
+            {event.is_full
+              ? '🔴 Lleno'
+              : `✅ ${event.available_capacity} de ${event.capacity} disponibles`}
           </span>
         </div>
 
@@ -141,8 +141,8 @@ const EventCard = ({ event }) => {
               marginTop: '0.5rem',
               transition: 'background-color 0.2s ease',
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = '#535bf2'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = '#646cff'}
+            onMouseEnter={e => (e.target.style.backgroundColor = '#535bf2')}
+            onMouseLeave={e => (e.target.style.backgroundColor = '#646cff')}
           >
             Ver Detalles
           </button>

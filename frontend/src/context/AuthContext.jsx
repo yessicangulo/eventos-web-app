@@ -81,8 +81,7 @@ export const AuthProvider = ({ children }) => {
       // Guardar usuario en localStorage (opcional, para persistencia)
       localStorage.setItem('user', JSON.stringify(userData));
     } catch (err) {
-      const errorMessage =
-        err.response?.data?.detail || err.message || 'Error al iniciar sesión';
+      const errorMessage = err.response?.data?.detail || err.message || 'Error al iniciar sesión';
       setError(errorMessage);
       throw err;
     } finally {

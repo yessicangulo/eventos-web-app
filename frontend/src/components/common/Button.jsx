@@ -16,10 +16,10 @@ const Button = ({ children, onClick, disabled = false, ...props }) => {
       style={buttonStyle}
       onClick={onClick}
       disabled={disabled}
-      onMouseEnter={(e) => {
+      onMouseEnter={e => {
         if (!disabled) e.target.style.backgroundColor = '#535bf2';
       }}
-      onMouseLeave={(e) => {
+      onMouseLeave={e => {
         if (!disabled) e.target.style.backgroundColor = '#646cff';
       }}
       {...props}

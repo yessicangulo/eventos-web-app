@@ -49,10 +49,11 @@ const Home = () => {
     } catch (err) {
       // Manejar errores de red de forma más amigable
       if (err.code === 'ERR_NETWORK' || err.message === 'Network Error') {
-        setError('No se pudo conectar con el servidor. Verifica que el backend esté corriendo en http://localhost:5000');
+        setError(
+          'No se pudo conectar con el servidor. Verifica que el backend esté corriendo en http://localhost:5000'
+        );
       } else {
-        const errorMessage =
-          err.response?.data?.detail || err.message || 'Error al cargar eventos';
+        const errorMessage = err.response?.data?.detail || err.message || 'Error al cargar eventos';
         setError(errorMessage);
       }
     } finally {
@@ -67,32 +68,32 @@ const Home = () => {
     }
   }, [filters.page, filters.status, user, authLoading]);
 
-  const handlePageChange = (newPage) => {
-    setFilters((prev) => ({
+  const handlePageChange = newPage => {
+    setFilters(prev => ({
       ...prev,
       page: newPage,
     }));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = e => {
     e.preventDefault();
-    setFilters((prev) => ({
+    setFilters(prev => ({
       ...prev,
       page: DEFAULT_PAGE,
     }));
     fetchEvents();
   };
 
-  const handleSearchChange = (e) => {
-    setFilters((prev) => ({
+  const handleSearchChange = e => {
+    setFilters(prev => ({
       ...prev,
       search: e.target.value,
     }));
   };
 
-  const handleStatusChange = (e) => {
-    setFilters((prev) => ({
+  const handleStatusChange = e => {
+    setFilters(prev => ({
       ...prev,
       status: e.target.value,
       page: DEFAULT_PAGE,
@@ -146,8 +147,8 @@ const Home = () => {
           <div style={welcomeStyle}>
             <h1 style={titleStyle}>Bienvenido a Mis Eventos</h1>
             <p style={subtitleStyle}>
-              Plataforma para gestionar y descubrir eventos increíbles.
-              Inicia sesión o regístrate para comenzar.
+              Plataforma para gestionar y descubrir eventos increíbles. Inicia sesión o regístrate
+              para comenzar.
             </p>
             <div style={buttonGroupStyle}>
               <Button onClick={() => navigate('/login')} style={{ minWidth: '150px' }}>
@@ -157,7 +158,7 @@ const Home = () => {
                 onClick={() => navigate('/register')}
                 style={{
                   minWidth: '150px',
-                  backgroundColor: '#388e3c'
+                  backgroundColor: '#388e3c',
                 }}
               >
                 Registrarse
@@ -218,9 +219,7 @@ const Home = () => {
       <div style={headerStyle}>
         <h1 style={titleStyle}>Eventos Disponibles</h1>
         {canCreateEvent && (
-          <Button onClick={() => navigate('/events/create')}>
-            + Crear Evento
-          </Button>
+          <Button onClick={() => navigate('/events/create')}>+ Crear Evento</Button>
         )}
       </div>
 
@@ -244,11 +243,7 @@ const Home = () => {
             <Button type="submit">Buscar</Button>
           </div>
 
-          <select
-            value={filters.status}
-            onChange={handleStatusChange}
-            style={selectStyle}
-          >
+          <select value={filters.status} onChange={handleStatusChange} style={selectStyle}>
             <option value="">Todos los estados</option>
             <option value={EVENT_STATUS.SCHEDULED}>Programado</option>
             <option value={EVENT_STATUS.ONGOING}>En Curso</option>

@@ -48,7 +48,7 @@ export const eventService = {
    *   sessions: Array
    * }>}
    */
-  getById: async (id) => {
+  getById: async id => {
     const response = await api.get(`/events/${id}`);
     return response.data;
   },
@@ -78,7 +78,7 @@ export const eventService = {
    *   is_full: boolean
    * }>}
    */
-  create: async (data) => {
+  create: async data => {
     const response = await api.post('/events', data);
     return response.data;
   },
@@ -121,7 +121,7 @@ export const eventService = {
    * @param {number} id - ID del evento
    * @returns {Promise<void>}
    */
-  delete: async (id) => {
+  delete: async id => {
     await api.delete(`/events/${id}`);
   },
 

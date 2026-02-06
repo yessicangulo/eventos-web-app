@@ -5,7 +5,13 @@ import Button from '../common/Button';
 import ErrorMessage from '../common/ErrorMessage';
 import { EVENT_STATUS } from '../../utils/constants';
 
-const EventForm = ({ event, onSubmit, onCancel, loading: externalLoading, error: externalError }) => {
+const EventForm = ({
+  event,
+  onSubmit,
+  onCancel,
+  loading: externalLoading,
+  error: externalError,
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -21,7 +27,7 @@ const EventForm = ({ event, onSubmit, onCancel, loading: externalLoading, error:
 
   useEffect(() => {
     if (event) {
-      const formatDateForInput = (dateString) => {
+      const formatDateForInput = dateString => {
         if (!dateString) return '';
         const date = new Date(dateString);
         const year = date.getFullYear();
@@ -130,14 +136,14 @@ const EventForm = ({ event, onSubmit, onCancel, loading: externalLoading, error:
 
   const editableFields = getEditableFields();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
     if (errors[name]) {
-      setErrors((prev) => ({
+      setErrors(prev => ({
         ...prev,
         [name]: null,
       }));
@@ -160,7 +166,12 @@ const EventForm = ({ event, onSubmit, onCancel, loading: externalLoading, error:
       newErrors.end_date = 'La fecha de fin es requerida';
     }
 
-    if (editableFields.start_date && editableFields.end_date && formData.start_date && formData.end_date) {
+    if (
+      editableFields.start_date &&
+      editableFields.end_date &&
+      formData.start_date &&
+      formData.end_date
+    ) {
       const start = new Date(formData.start_date);
       const end = new Date(formData.end_date);
       if (end <= start) {
@@ -176,7 +187,7 @@ const EventForm = ({ event, onSubmit, onCancel, loading: externalLoading, error:
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (!validate()) {
@@ -249,28 +260,32 @@ const EventForm = ({ event, onSubmit, onCancel, loading: externalLoading, error:
 
       {externalError && <ErrorMessage message={externalError} />}
 
-      {isCompleted && (
-        <ErrorMessage message="Este evento está completado y no se puede editar." />
-      )}
+      {isCompleted && <ErrorMessage message="Este evento está completado y no se puede editar." />}
 
       <form onSubmit={handleSubmit} style={formStyle}>
         {/* Mensaje informativo según el estado */}
         {event && (
-          <div style={{
-            padding: '1rem',
-            backgroundColor: '#e3f2fd',
-            borderRadius: '8px',
-            marginBottom: '1rem',
-            fontSize: '0.9rem',
-            color: '#1976d2',
-          }}>
-            <strong>Estado del evento:</strong> {event.computed_status === EVENT_STATUS.SCHEDULED && 'Programado'}
+          <div
+            style={{
+              padding: '1rem',
+              backgroundColor: '#e3f2fd',
+              borderRadius: '8px',
+              marginBottom: '1rem',
+              fontSize: '0.9rem',
+              color: '#1976d2',
+            }}
+          >
+            <strong>Estado del evento:</strong>{' '}
+            {event.computed_status === EVENT_STATUS.SCHEDULED && 'Programado'}
             {event.computed_status === EVENT_STATUS.ONGOING && 'En Curso'}
             {event.computed_status === EVENT_STATUS.COMPLETED && 'Completado'}
             {event.computed_status === EVENT_STATUS.CANCELLED && 'Cancelado'}
-            {event.computed_status === EVENT_STATUS.ONGOING && ' - Solo puedes editar descripción y ubicación'}
-            {event.computed_status === EVENT_STATUS.COMPLETED && ' - Este evento no se puede editar'}
-            {event.computed_status === EVENT_STATUS.CANCELLED && ' - Solo puedes reactivar el evento cambiando el estado'}
+            {event.computed_status === EVENT_STATUS.ONGOING &&
+              ' - Solo puedes editar descripción y ubicación'}
+            {event.computed_status === EVENT_STATUS.COMPLETED &&
+              ' - Este evento no se puede editar'}
+            {event.computed_status === EVENT_STATUS.CANCELLED &&
+              ' - Solo puedes reactivar el evento cambiando el estado'}
           </div>
         )}
 

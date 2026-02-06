@@ -23,14 +23,14 @@ const Register = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
     if (errors[name]) {
-      setErrors((prev) => ({
+      setErrors(prev => ({
         ...prev,
         [name]: null,
       }));
@@ -65,7 +65,7 @@ const Register = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (!validate()) {
@@ -76,11 +76,7 @@ const Register = () => {
     setError(null);
 
     try {
-      await register(
-        formData.email,
-        formData.password,
-        formData.fullName.trim() || null
-      );
+      await register(formData.email, formData.password, formData.fullName.trim() || null);
       navigate('/');
     } catch (err) {
       const errorMessage =
