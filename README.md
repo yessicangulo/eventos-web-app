@@ -70,10 +70,6 @@ docker-compose up --build -d
 - **Admin**: `admin@mis-eventos.com` / `admin123`
 - **Organizador**: `organizer@mis-eventos.com` / `organizer123`
 
-**Credenciales por defecto:**
-- **Admin**: `admin@mis-eventos.com` / `admin123`
-- **Organizador**: `organizer@mis-eventos.com` / `organizer123`
-
 ## 📋 Requisitos
 
 ### Backend
